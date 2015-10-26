@@ -1,0 +1,9 @@
+{
+  "name": "empty-web-application",
+  "version": "1.0.0",
+  "devDependencies": {
+    "bower": "^1.6.5",
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.1.3"
+  }
+}
