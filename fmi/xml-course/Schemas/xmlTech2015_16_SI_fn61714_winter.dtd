@@ -1,0 +1,37 @@
+﻿<!-- Note that the transformation only covers a common subset of XML Schema.
+     Unknown elements will be ignored. -->
+ EMPTY EMPTY EMPTY ANY ANY ANY ( (
+
+<!-- ELEMENT SimpleField -->
+<!ELEMENT SimpleField ( #PCDATA ) > |
+
+<!-- ELEMENT ComplexField -->
+<!ELEMENT ComplexField ( #PCDATA ) > )+ ) ANY (
+
+<!-- ELEMENT Tab -->
+<!ELEMENT Tab ( #PCDATA ) > ) ANY
+
+<!-- ATTRIBUTE GROUP CommonFieldAttributes -->
+<!--
+Name: 
+
+DisplayName: 
+-->
+
+<!ENTITY % CommonFieldAttributes "
+  Name CDATA #REQUIRED
+  DisplayName CDATA #REQUIRED " >
+
+<!-- ATTRIBUTE GROUP RulesCommonAttributes -->
+<!--
+Name: 
+
+ErrorText: 
+-->
+
+<!ENTITY % RulesCommonAttributes "
+  Name CDATA #REQUIRED
+  ErrorText CDATA #REQUIRED " >
+
+<!-- ELEMENT Form -->
+<!ELEMENT Form ( #PCDATA ) >

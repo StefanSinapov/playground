@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:attributeGroup name="CommonFieldAttributes">
+    <xs:attribute  name="Name" type="xs:string" use="required"/>
+    <xs:attribute  name="DisplayName" type="xs:string" use="required"/>
+  </xs:attributeGroup>
+
+  <!-- START Rules -->
+  <xs:attributeGroup name="RulesCommonAttributes">
+    <xs:attribute  name="Name" type="xs:string" use="required"/>
+    <xs:attribute  name="ErrorText" type="xs:string" use="required"/>
+  </xs:attributeGroup>
+
+  <xs:complexType name="xRequiredRule">
+    <xs:attributeGroup ref="RulesCommonAttributes"></xs:attributeGroup>
+  </xs:complexType>
+
+  <xs:complexType name="xRangeRule">
+    <xs:attributeGroup ref="RulesCommonAttributes"></xs:attributeGroup>
+    <xs:attribute name="MinimumValue" type="xs:string" use="required"/>
+    <xs:attribute name="MaximumValue" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="xRegularExpressionRule">
+    <xs:attributeGroup ref="RulesCommonAttributes"></xs:attributeGroup>
+    <xs:attribute name="Expression" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="xRules">
+    <xs:all>
+      <xs:element name="RegularExpression" type="xRegularExpressionRule" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Range" type="xRangeRule" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Required" type="xRequiredRule" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+  <!-- END Rules -->
+
+  <!-- START Fields -->
+  <xs:simpleType name="SimpleFieldType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Text" />
+      <xs:enumeration value="Password" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="Color" />
+      <xs:enumeration value="Document" />
+      <xs:enumeration value="Date" />
+      <xs:enumeration value="DateTime" />
+      <xs:enumeration value="TextArea" />
+      <!--<xs:enumeration value="RichText" />-->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ComplexFieldType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CheckBox" />
+      <xs:enumeration value="RadioButton" />
+      <xs:enumeration value="DropDown" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="xSimpleField">
+    <xs:all>
+      <xs:element name="Rules" type="xRules" minOccurs="0" maxOccurs="1"></xs:element>
+    </xs:all>
+    <xs:attribute name="Type" type="SimpleFieldType"/>
+    <xs:attributeGroup ref="CommonFieldAttributes"></xs:attributeGroup>
+  </xs:complexType>
+
+  <xs:complexType name="xComplexField">
+    <xs:all>
+      <xs:element name="Rules" type="xRules" minOccurs="0" maxOccurs="1"></xs:element>
+      <xs:element name="Items" minOccurs="1" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Item" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute  name="Name" type="xs:string" use="required"/>
+                <xs:attribute  name="Value" type="xs:string" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+    <xs:attribute name="Type" type="ComplexFieldType"/>
+    <xs:attributeGroup ref="CommonFieldAttributes"></xs:attributeGroup>
+  </xs:complexType>
+
+  <xs:complexType name="xFields">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="SimpleField" type="xSimpleField"/>
+        <xs:element name="ComplexField" type="xComplexField"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- END Fields-->
+
+  <!-- START Tabs-->
+
+  <xs:complexType name="xTab">
+    <xs:all minOccurs="1">
+      <xs:element name="Fields" type="xFields"/>
+    </xs:all>
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+    <xs:attribute name="DisplayName" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="xTabs">
+    <xs:sequence>
+      <xs:element name="Tab" type="xTab" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--  END Tabs-->
+
+  <xs:simpleType name="FormMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="post" />
+      <xs:enumeration value="get" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="xForm">
+    <xs:all>
+      <xs:element name="Tabs" type="xTabs"/>
+    </xs:all>
+    <xs:attribute name="Action" type="xs:anyURI" use="required"/>
+    <xs:attribute name="Method" type="FormMethodType" use="required"/>
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="Form" type="xForm">
+  </xs:element>
+</xs:schema>

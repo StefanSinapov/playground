@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Form Action="" Method="post" Name="LoginForm">
+  <Tabs>
+    <Tab Name="Login" DisplayName="Login">
+      <Fields>
+        <SimpleField Name="Username" DisplayName="Username" Type="Text">
+          <Rules>
+            <RegularExpression ErrorText="Invalid value." Name="RegexRule" Expression="^[a-zA-Z]+$" />
+            <Required ErrorText="This field is required." Name="ReqRule"/>
+          </Rules>
+        </SimpleField>
+        <SimpleField Name="Password" DisplayName="Password" Type="Password">
+		 <Rules>
+            <Required ErrorText="This field is required." Name="ReqRule"/>
+          </Rules>
+        </SimpleField>
+		<ComplexField Type="CheckBox" DisplayName="Stay logged in" Name="Exam">
+          <Items>
+            <Item Name="Remember Me" Value='1' />
+          </Items>
+        </ComplexField>
+      </Fields>
+    </Tab>
+  </Tabs>
+</Form>

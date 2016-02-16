@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Form Action="" Method="post">
+  <Tabs>
+    <Tab Name="Registration">
+      <Fields>
+        <SimpleField Name="FirstName" DisplayName="First Name" Type="Text">
+          <Rules>
+            <RegularExpression ErrorText="Invalid value." Name="RegexRule" Expression="" />
+            <Required ErrorText="This field is required." Name="ReqRule"/>
+          </Rules>
+        </SimpleField>
+        <SimpleField Name="LastName" DisplayName="Last Name" Type="Text">
+          <Rules>
+            <RegularExpression ErrorText="Invalid value." Name="RegexRule" Expression="" />
+            <Required ErrorText="This field is required." Name="ReqRule"/>
+          </Rules>
+        <SimpleField Name="Password" DisplayName="Password" Type="Password">
+
+        </SimpleField>
+        <ComplexField Type="RadioButton" DisplayName="Gender" Name="Gender">
+          <Items>
+            <Item Name="Male" Value="1" />
+            <Item Name="Female" Value="2"/>
+            <Item Name="Other" Value="3"/>
+          </Items>
+        </ComplexField>
+      </Fields>
+    </Tab>
+  </Tabs>
+</Form>

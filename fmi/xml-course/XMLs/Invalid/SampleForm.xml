@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Form Action="" Method="post">
+  <Tabs>
+    <Tab Name="Registration" DisplayName="Registration Tab">
+      <Fields>
+        <SimpleField Name="FirstName" DisplayName="First Name" Type="Text">
+          <Rules>
+            <RegularExpression ErrorText="Invalid value." Name="RegexRule" Expression="" />
+            <Required ErrorText="This field is required." Name="ReqRule"/>
+          </Rules>
+        </SimpleField>
+        <SimpleField Name="LastName" DisplayName="Last Name" Type="Text">
+          <Rules>
+            <RegularExpression ErrorText="Invalid value." Name="RegexRule" Expression="" />
+            <Required ErrorText="This field is required." Name="ReqRule"/>
+          </Rules>
+        </SimpleField>
+        <SimpleField Name="Password" DisplayName="Password" Type="Password">
+
+        </SimpleField>
+        <ComplexField Type="RadioButton" DisplayName="Gender" Name="Gender">
+          <Items>
+            <Item Name="Male" Value="1" />
+            <Item Name="Female" Value="2"/>
+            <Item Name="Other" Value="3"/>
+          </Items>
+        </ComplexField>
+      </Fields>
+    </Tab>
+    <Tab Name="Other" DisplayName="Other">
+      <Fields>
+        <ComplexField Type="DropDown" DisplayName="Country" Name="Country">
+          <Items>
+            <Item Name="Bulgaria" Value="BG" />
+            <Item Name="United States" Value="USA"/>
+            <Item Name="Russia" Value="RU"/>
+          </Items>
+        </ComplexField>
+        <SimpleField Name="TextField1" DisplayName="Text Field" Type="Text">
+          <Rules>
+            <Required ErrorText="This field is required." Name="ReqRule"/>
+          </Rules>
+        </SimpleField>
+        <ComplexField Type="CheckBox" DisplayName="Exams to go" Name="Exam">
+          <Items>
+            <Item Name="XML" Value='1' />
+            <Item Name="Statistics" Value="2"/>
+          </Items>
+        </ComplexField>
+      </Fields>
+    </Tab>
+  </Tabs>
+</Form>

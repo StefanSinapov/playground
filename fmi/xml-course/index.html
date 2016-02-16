@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>XML Course Project</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <style>
+        body {
+            padding-top: 100px;
+            padding-bottom: 20px;
+        }
+
+        form {
+            margin-top: 15px;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/formValidation.min.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <script src="assets/js/modernizr.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>Forms.</strong> <small>Generate forms from XML</small></div>
+            <div class="panel-body">
+
+				<!-- <div class="form-group">
+					<label>Schema</label>
+					<input type="file" name="file-schema" id="upload-schema">
+					<label>Xslt</label>
+					<input type="file" name="file-tranformation" id="upload-tranformation">
+				</div> -->
+			
+                <!-- Standart Form -->
+                <h4>Select xml file from your computer</h4>
+                <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <input type="file" name="file" id="upload-files" multiple>
+                        </div>
+
+                    </div>
+                </form>
+
+                <!-- Drop Zone -->
+                <h4>Or drag and drop the file below </h4>
+                <div class="upload-drop-zone" id="drop-zone">
+                    Just drag and drop files here
+                </div>
+
+                <h4>Or just type it in below</h4>
+                <div>
+                    <textarea class="form-control" id="xml-text" rows="3"></textarea>
+                    <div class="form-group">
+                    </div>
+                </div>
+
+                <button disabled="disabled" class="btn btn-sm btn-primary" id="btn-generate">Generate</button>
+
+                <!-- Upload Finished -->
+                <div class="validation-finished">
+                    <h3>Validation</h3>
+                    <div>
+                        <p class="bg-success" ></p>
+                        <p class="bg-danger"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /container -->
+
+    <div id="example"></div>
+
+<script src="assets/js/jquery-2.2.0.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/formValidation.min.js"></script>
+    <script src="assets/js/formValidation.bootstrap.min.js"></script>
+    <script src="assets/js/xmllint.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
