@@ -13,7 +13,7 @@ if (true) {
     console.log(y_1);
 }
 else {
-    var y_2 = "string";
+    var y_2 = 'string';
 }
 console.log(y);
 //# sourceMappingURL=app02.js.map

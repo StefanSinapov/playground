@@ -25,7 +25,7 @@ if (true) {
     let y = 5;
     console.log(y);
 } else {
-    let y = "string";
+    let y = 'string';
 }
 
 console.log(y);
