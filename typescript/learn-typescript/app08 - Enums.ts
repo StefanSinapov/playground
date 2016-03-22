@@ -14,7 +14,6 @@ let colorIndex2: number = Color4['Red'];
 let colorIndex3: Color4 = Color4['Red'];
 // they are the same when compiled
 
-
 //NOTE: However you might want the compiler to still generate the JavaScript version of the enum definition for stuff like number 
 // to string or string to number lookups as we saw. In this case you can use the compiler flag --preserveConstEnums and 
 // it will still generate the var Tristate definition so that you can use Tristate["False"] or Tristate[0] manually at runtime if you want. 

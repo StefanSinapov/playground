@@ -1,0 +1,6 @@
+{
+  "name": "nx2-typescript-01",
+  "dependencies": {
+    "system.js": "~0.19.24"
+  }
+}

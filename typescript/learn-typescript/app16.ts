@@ -78,7 +78,7 @@ if (pet instanceof Dog) {
 var some: any = "Tom"; //Line A
 if (typeof some === 'string') { //Line B
     // ERROR, 'lengthX' does not exist on 'string' but 'lenght' does
-    console.log(some.lengthX);
+    // console.log(some.lengthX);
 }
 // some is still any here
 some.unknown();// OK
