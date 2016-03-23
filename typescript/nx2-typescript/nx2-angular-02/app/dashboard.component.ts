@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from 'angular2/core'
+﻿import { Component, OnInit, Inject } from 'angular2/core'
 import { Router } from 'angular2/router';
 import { HeroService } from './hero.service'
 import { IHero } from './hero'
@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
     heroes: IHero[];
 
-    constructor(private _heroService: HeroService, private _router: Router) { }
+    constructor( @Inject(HeroService) private _heroService: HeroService, private _router: Router) { }
 
     ngOnInit(): any {
         this.loadHeroes();

@@ -10,6 +10,9 @@ System.register(['angular2/core', 'angular2/router', './hero.service'], function
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
     var core_1, router_1, hero_service_1;
     var DashboardComponent;
     return {
@@ -46,7 +49,8 @@ System.register(['angular2/core', 'angular2/router', './hero.service'], function
                         selector: 'my-dashboard',
                         templateUrl: 'app/dashboard.component.html',
                         styleUrls: ['app/dashboard.component.css']
-                    }), 
+                    }),
+                    __param(0, core_1.Inject(hero_service_1.HeroService)), 
                     __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.Router])
                 ], DashboardComponent);
                 return DashboardComponent;

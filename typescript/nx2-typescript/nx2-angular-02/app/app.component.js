@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './hero.service', './dashboard.component', './heroes.component', './hero-detail.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './hero.service', './hero.http.service', './console.logger.service', './dashboard.component', './heroes.component', './hero-detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './dashbo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, hero_service_1, dashboard_component_1, heroes_component_1, hero_detail_component_1;
+    var core_1, router_1, hero_service_1, hero_http_service_1, console_logger_service_1, dashboard_component_1, heroes_component_1, hero_detail_component_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,12 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './dashbo
             },
             function (hero_service_1_1) {
                 hero_service_1 = hero_service_1_1;
+            },
+            function (hero_http_service_1_1) {
+                hero_http_service_1 = hero_http_service_1_1;
+            },
+            function (console_logger_service_1_1) {
+                console_logger_service_1 = console_logger_service_1_1;
             },
             function (dashboard_component_1_1) {
                 dashboard_component_1 = dashboard_component_1_1;
@@ -45,7 +51,8 @@ System.register(['angular2/core', 'angular2/router', './hero.service', './dashbo
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
-                            hero_service_1.HeroService
+                            core_1.provide(hero_service_1.HeroService, { useClass: hero_http_service_1.HeroHttpService }),
+                            core_1.provide('ILogger', { useClass: console_logger_service_1.Logger })
                         ]
                     }),
                     router_1.RouteConfig([

@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from 'angular2/core';
+﻿import { Component, OnInit, Inject } from 'angular2/core';
 import { Router } from 'angular2/router';
 
 import { IHero } from './hero';
@@ -17,7 +17,7 @@ export class HeroesComponent implements OnInit {
 
     constructor(
         private _router: Router,
-        private _heroService: HeroService) { }
+        @Inject(HeroService) private _heroService: HeroService) { }
 
     getHeroes() {
         this._heroService.getHeroes().then(heroes => this.heroes = heroes);

@@ -1,7 +1,11 @@
-﻿import { Component } from 'angular2/core';
+﻿import { Component, provide } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import {HTTP_PROVIDERS}    from 'angular2/http';
 
 import { HeroService } from './hero.service';
+import { HeroHttpService } from './hero.http.service';
+import { ILogger } from './logger.service';
+import { Logger } from './console.logger.service';
 import { DashboardComponent } from './dashboard.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from './hero-detail.component';
@@ -20,7 +24,8 @@ import { HeroDetailComponent } from './hero-detail.component';
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,
-        HeroService
+        provide(HeroService, { useClass: HeroHttpService}),
+        provide('ILogger', { useClass: Logger })
     ]
 })
 @RouteConfig([
