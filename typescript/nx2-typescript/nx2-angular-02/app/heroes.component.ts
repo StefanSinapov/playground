@@ -20,7 +20,9 @@ export class HeroesComponent implements OnInit {
 
     constructor(
         private _router: Router,
-        @Inject(HeroService) private _heroService: HeroService, @Inject('ILogger') private _logger: ILogger) { }
+        @Inject(HeroService) private _heroService: HeroService,
+        @Inject('ILogger') private _logger: ILogger) {
+    }
 
     getHeroes() {
         this._heroService.getHeroes().then(heroes => this.heroes = heroes);
@@ -38,14 +40,28 @@ export class HeroesComponent implements OnInit {
 
     addHero() {
         this._heroService.addHero(this.newHeroName)
-            .then((hero) => {
+            .then((hero: IHero) => {
                 this.getHeroes();
                 this.selectedHero = hero;
             })
-            .catch((err) => this._logger.error(err));
+            .catch(this.serviceError);
     }
 
     back() {
         this.selectedHero = null;
+    }
+
+    deleteHero() {
+        this._heroService.deleteHero(this.selectedHero.id)
+            .then(() => {
+                this.selectedHero = null;
+                this.getHeroes();
+            })
+            .catch(this.serviceError);
+    }
+
+    private serviceError(err: any) {
+        this._logger.error(err);
+
     }
 }

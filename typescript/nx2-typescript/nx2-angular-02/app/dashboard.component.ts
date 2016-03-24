@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
     heroes: IHero[];
 
-    constructor( @Inject(HeroService) private _heroService: HeroService, private _router: Router) { }
+    constructor(@Inject(HeroService) private _heroService: HeroService, private _router: Router) {}
 
     ngOnInit(): any {
         this.loadHeroes();
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
     }
 
     gotoDetail(hero: IHero) {
-        let link = ['HeroDetail', { id: hero.id }];
+        const link = ['HeroDetail', { id: hero.id }];
         this._router.navigate(link);
     }
 }

@@ -35,7 +35,7 @@ export class ClickMeComponent {
     }
 
     onKey(event: KeyboardEvent) {
-        this.values += `${(<HTMLInputElement>event.target).value} |`;
+        this.values += `${(event.target as HTMLInputElement).value} |`;
     }
 
     add() {

@@ -100,6 +100,22 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx',
                     })
                         .catch(this.handleErrorObservable);
                 };
+                HeroHttpService.prototype.deleteHero = function (id) {
+                    var _this = this;
+                    return this._http.delete(this._heroesUrl + "/" + id)
+                        .toPromise()
+                        .then(function (response) {
+                        _this._logger.log(response);
+                        if (response.status === 204) {
+                            return Promise.resolve();
+                        }
+                        else {
+                            return Promise
+                                .reject("Error deleting hero " + id + " - Status code: " + response.status);
+                        }
+                    })
+                        .catch(this.handleErrorObservable);
+                };
                 HeroHttpService = __decorate([
                     core_1.Injectable(),
                     __param(0, core_1.Inject('ILogger')), 

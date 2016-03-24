@@ -49,7 +49,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', './hero.se
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n      <a [routerLink]=\"['Heroes']\">Heroes</a>\n      <a [routerLink] = \"['ClickMe']\">Click me demo</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
+                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n      <a [routerLink]=\"['Heroes']\">Heroes</a>\n      <a [routerLink]=\"['HeroForm']\">Add new form</a>\n      <a [routerLink] = \"['ClickMe']\">Click me demo</a>\n      <a [routerLink] = \"['Wiki']\">Wiki</a>\n      <a [routerLink] = \"['WikiSmart']\">Smart Wiki</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
                         styleUrls: ['app/app.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [
@@ -57,7 +57,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', './hero.se
                             core_1.provide(hero_service_1.HeroService, { useClass: hero_http_service_1.HeroHttpService }),
                             core_1.provide(http_1.XHRBackend, { useClass: core_2.InMemoryBackendService }),
                             core_1.provide(core_2.SEED_DATA, { useClass: hero_data_1.HeroData }),
-                            core_1.provide('ILogger', { useClass: console_logger_service_1.Logger })
+                            core_1.provide('ILogger', { useClass: console_logger_service_1.ConsoleLogger })
                         ]
                     }),
                     router_1.RouteConfig(router_config_1.routerConfig), 

@@ -16,11 +16,12 @@ export class HeroDetailComponent implements OnInit {
 
     constructor(
         @Inject(HeroService) private _heroService: HeroService,
-        private _routeParams: RouteParams, @Inject('ILogger') private _logger: ILogger) {
+        private _routeParams: RouteParams,
+        @Inject('ILogger') private _logger: ILogger) {
     }
 
     ngOnInit() {
-        let id = +this._routeParams.get('id');
+        const id = +this._routeParams.get('id');
         this._heroService.getHero(id)
             .then(hero => this.hero = hero);
     }

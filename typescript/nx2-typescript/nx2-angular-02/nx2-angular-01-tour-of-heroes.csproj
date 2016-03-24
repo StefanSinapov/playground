@@ -28,8 +28,10 @@
     <Content Include="app\dashboard.component.html" />
     <Content Include="app\hero-detail.component.css" />
     <Content Include="app\hero-detail.component.html" />
+    <Content Include="app\hero-form.component.html" />
     <Content Include="app\heroes.component.css" />
     <Content Include="app\heroes.component.html" />
+    <Content Include="forms.css" />
     <Content Include="index.html" />
     <Content Include="styles.css" />
     <Content Include="web.config" />
@@ -39,6 +41,7 @@
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\click-me.component.ts" />
     <TypeScriptCompile Include="app\dashboard.component.ts" />
+    <TypeScriptCompile Include="app\hero-form.component.ts" />
     <TypeScriptCompile Include="app\hero-http.service.ts" />
     <TypeScriptCompile Include="app\hero.service.ts" />
     <TypeScriptCompile Include="app\heroes.component.ts" />
@@ -50,6 +53,9 @@
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\mock-heroes.ts" />
     <TypeScriptCompile Include="app\router.config.ts" />
+    <TypeScriptCompile Include="app\wiki\wiki-smart.component.ts" />
+    <TypeScriptCompile Include="app\wiki\wiki.component.ts" />
+    <TypeScriptCompile Include="app\wiki\wikipedia.service.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="tsconfig.json" />

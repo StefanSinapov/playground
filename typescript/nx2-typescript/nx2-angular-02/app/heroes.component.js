@@ -54,10 +54,22 @@ System.register(['angular2/core', 'angular2/router', './hero-detail.component', 
                         _this.getHeroes();
                         _this.selectedHero = hero;
                     })
-                        .catch(function (err) { return _this._logger.error(err); });
+                        .catch(this.serviceError);
                 };
                 HeroesComponent.prototype.back = function () {
                     this.selectedHero = null;
+                };
+                HeroesComponent.prototype.deleteHero = function () {
+                    var _this = this;
+                    this._heroService.deleteHero(this.selectedHero.id)
+                        .then(function () {
+                        _this.selectedHero = null;
+                        _this.getHeroes();
+                    })
+                        .catch(this.serviceError);
+                };
+                HeroesComponent.prototype.serviceError = function (err) {
+                    this._logger.error(err);
                 };
                 HeroesComponent = __decorate([
                     core_1.Component({

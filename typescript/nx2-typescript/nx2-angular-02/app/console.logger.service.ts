@@ -1,8 +1,8 @@
 ﻿import { Injectable } from 'angular2/core';
-import { ILogger } from './logger.service'
+import { ILogger } from './logger.service';
 
 @Injectable()
-export class Logger implements ILogger {
+export class ConsoleLogger implements ILogger {
     error(msg: any): void {
         console.error(msg);
     }

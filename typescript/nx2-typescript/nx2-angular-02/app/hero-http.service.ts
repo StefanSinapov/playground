@@ -81,4 +81,19 @@ export class HeroHttpService implements HeroService {
             })
             .catch(this.handleErrorObservable);
     }
+
+    deleteHero(id: number): Promise<void> {
+        return this._http.delete(`${this._heroesUrl}/${id}`)
+            .toPromise()
+            .then((response) => {
+                this._logger.log(response);
+                if (response.status === 204) { // No content
+                    return Promise.resolve();
+                } else {
+                    return Promise
+                        .reject(`Error deleting hero ${id} - Status code: ${response.status}`);
+                }
+            })
+            .catch(this.handleErrorObservable);
+    }
 }
