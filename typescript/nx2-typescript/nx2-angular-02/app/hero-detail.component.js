@@ -28,9 +28,10 @@ System.register(['angular2/core', 'angular2/router', './hero.service'], function
             }],
         execute: function() {
             HeroDetailComponent = (function () {
-                function HeroDetailComponent(_heroService, _routeParams) {
+                function HeroDetailComponent(_heroService, _routeParams, _logger) {
                     this._heroService = _heroService;
                     this._routeParams = _routeParams;
+                    this._logger = _logger;
                 }
                 HeroDetailComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -41,6 +42,11 @@ System.register(['angular2/core', 'angular2/router', './hero.service'], function
                 HeroDetailComponent.prototype.goBack = function () {
                     window.history.back();
                 };
+                HeroDetailComponent.prototype.update = function () {
+                    var _this = this;
+                    this._heroService.editHero(this.hero)
+                        .catch(function (error) { return _this._logger.error(error); });
+                };
                 HeroDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'my-hero-detail',
@@ -48,8 +54,9 @@ System.register(['angular2/core', 'angular2/router', './hero.service'], function
                         styleUrls: ['app/hero-detail.component.css'],
                         inputs: ['hero']
                     }),
-                    __param(0, core_1.Inject(hero_service_1.HeroService)), 
-                    __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.RouteParams])
+                    __param(0, core_1.Inject(hero_service_1.HeroService)),
+                    __param(2, core_1.Inject('ILogger')), 
+                    __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.RouteParams, Object])
                 ], HeroDetailComponent);
                 return HeroDetailComponent;
             }());

@@ -17,7 +17,7 @@
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="node_modules/angular2/bundles/router.dev.js"></script>
     <script src="node_modules/angular2/bundles/http.dev.js"></script>
-
+    <script src="node_modules/a2-in-memory-web-api/web-api.js"></script>
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
@@ -41,6 +41,86 @@
     <!--<div id="nameTag" data-username="gosho.1">Gosho</div>
     <template id="nameTagTemplate">
         <style>
+                .outer {
+                    border: 2px solid brown;
+                    border-radius: 1em;
+                    background: red;
+                    font-size: 20pt;
+                    width: 12em;
+                    height: 7em;
+                    text-align: center;
+                }
+
+                .boilerplate {
+                    color: white;
+                    font-family: sans-serif;
+                    padding: 0.5em;
+                }
+
+                .name {
+                    color: black;
+                    background: white;
+                    font-family: "Marker Felt", cursive;
+                    font-size: 45pt;
+                    padding-top: 0.2em;
+                }
+            </style>
+        <div class="outer">
+            <div class="boilerplate">
+                Hi! My name is
+            </div>
+            <div class="name">
+                <content></content>
+            </div>
+            <div>
+                Username: <content select="[data-username]"></content>
+            </div>
+        </div>
+    </template>
+
+    <script>
+            var shadow = document.querySelector('#nameTag').createShadowRoot();
+            var template = document.querySelector('#nameTagTemplate');
+            var clone = document.importNode(template.content, true);
+            shadow.appendChild(clone);
+        </script>-->
+
+
+
+    <!--<p id="demo">Let AJAX change this text.</p>
+    <button type="button"
+            onclick="loadDoc('http://10.1.1.183:8080/ipt_polling/app/polls/', myFunction)">
+        Change Content
+    </button>
+    <script>
+        function loadDoc(url, cfunc) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    cfunc(xhttp);
+                }
+            };
+            xhttp.open("GET", url, true);
+            xhttp.setRequestHeader("Accept", "application/json");
+            xhttp.send();
+        }
+        function myFunction(xhttp) {
+            document.getElementById("demo").innerHTML = xhttp.responseText;
+        }
+    </script>-->
+    <!--<button>Hello, world!</button>
+    <script>
+        var host = document.querySelector('button');
+        var root = host.createShadowRoot();
+        root.textContent = 'こんにちは、影の世界!';
+    </script>
+    <div data-name="George" id="nameTag"><b>Hi</b>Samuel</div>
+    <template id="nameTagTemplate">
+        <style>
+            :host:hover::shadow .outer {
+                background: green;
+            }
             .outer {
                 border: 2px solid brown;
                 border-radius: 1em;
@@ -50,13 +130,11 @@
                 height: 7em;
                 text-align: center;
             }
-
             .boilerplate {
                 color: white;
                 font-family: sans-serif;
                 padding: 0.5em;
             }
-
             .name {
                 color: black;
                 background: white;
@@ -72,17 +150,14 @@
             <div class="name">
                 <content></content>
             </div>
-            <div>
-                Username: <content select="[data-username]"></content>
-            </div>
         </div>
     </template>
-
     <script>
         var shadow = document.querySelector('#nameTag').createShadowRoot();
         var template = document.querySelector('#nameTagTemplate');
         var clone = document.importNode(template.content, true);
         shadow.appendChild(clone);
     </script>-->
+
 </body>
 </html>

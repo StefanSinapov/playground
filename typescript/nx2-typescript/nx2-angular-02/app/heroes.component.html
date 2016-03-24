@@ -11,4 +11,9 @@
         {{selectedHero.name | uppercase}} is my hero
     </h2>
     <button (click)="gotoDetail()">View Details</button>
+    <button (click)="back()">New</button>
+</div>
+<div *ngIf="!selectedHero">
+    <input type="text" [(ngModel)]="newHeroName">
+    <button (click)="addHero()">Add</button>
 </div>

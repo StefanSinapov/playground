@@ -64,7 +64,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx',
                         .then(function (heroes) {
                         var nextHeroId = heroes.reduce(function (prevMaxId, next) { return next.id > prevMaxId ? next.id : prevMaxId; }, 0) + 1;
                         var newHero = new hero_1.Hero(nextHeroId, name);
-                        var body = JSON.stringify({ newHero: newHero });
+                        var body = JSON.stringify(newHero);
                         var headers = new http_1.Headers({
                             'Content-type': 'application/json'
                         });
@@ -111,4 +111,4 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx',
         }
     }
 });
-//# sourceMappingURL=hero.http.service.js.map
+//# sourceMappingURL=hero-http.service.js.map

@@ -31,9 +31,10 @@ System.register(['angular2/core', 'angular2/router', './hero-detail.component', 
             }],
         execute: function() {
             HeroesComponent = (function () {
-                function HeroesComponent(_router, _heroService) {
+                function HeroesComponent(_router, _heroService, _logger) {
                     this._router = _router;
                     this._heroService = _heroService;
+                    this._logger = _logger;
                 }
                 HeroesComponent.prototype.getHeroes = function () {
                     var _this = this;
@@ -46,6 +47,18 @@ System.register(['angular2/core', 'angular2/router', './hero-detail.component', 
                 HeroesComponent.prototype.gotoDetail = function () {
                     this._router.navigate(['HeroDetail', { id: this.selectedHero.id }]);
                 };
+                HeroesComponent.prototype.addHero = function () {
+                    var _this = this;
+                    this._heroService.addHero(this.newHeroName)
+                        .then(function (hero) {
+                        _this.getHeroes();
+                        _this.selectedHero = hero;
+                    })
+                        .catch(function (err) { return _this._logger.error(err); });
+                };
+                HeroesComponent.prototype.back = function () {
+                    this.selectedHero = null;
+                };
                 HeroesComponent = __decorate([
                     core_1.Component({
                         selector: 'my-heroes',
@@ -53,8 +66,9 @@ System.register(['angular2/core', 'angular2/router', './hero-detail.component', 
                         styleUrls: ['app/heroes.component.css'],
                         directives: [hero_detail_component_1.HeroDetailComponent]
                     }),
-                    __param(1, core_1.Inject(hero_service_1.HeroService)), 
-                    __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService])
+                    __param(1, core_1.Inject(hero_service_1.HeroService)),
+                    __param(2, core_1.Inject('ILogger')), 
+                    __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, Object])
                 ], HeroesComponent);
                 return HeroesComponent;
             }());
