@@ -1,10 +1,10 @@
 ﻿import {Injectable, Inject} from 'angular2/core';
 import {Jsonp, URLSearchParams} from 'angular2/http';
-import {ILogger} from '../logger.service';
+import {ILogger, ILoggerToken} from '../logger.service';
 
 @Injectable()
 export class WikipediaService {
-    constructor(private jsonp: Jsonp, @Inject('ILogger') private _logger: ILogger) { }
+    constructor(private jsonp: Jsonp, @Inject(ILoggerToken) private _logger: ILogger) { }
     search(term: string) {
         let wikiUrl = 'http://en.wikipedia.org/w/api.php';
         var params = new URLSearchParams();

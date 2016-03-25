@@ -3,7 +3,7 @@ import {RouteParams} from 'angular2/router';
 
 import { IHero } from './hero';
 import { HeroService } from './hero.service';
-import { ILogger } from './logger.service';
+import { ILogger, ILoggerToken as ILogger_Token } from './logger.service';
 
 @Component({
     selector: 'my-hero-detail',
@@ -17,13 +17,13 @@ export class HeroDetailComponent implements OnInit {
     constructor(
         @Inject(HeroService) private _heroService: HeroService,
         private _routeParams: RouteParams,
-        @Inject('ILogger') private _logger: ILogger) {
+        @Inject(ILogger_Token) private _logger: ILogger) {
     }
 
     ngOnInit() {
         const id = +this._routeParams.get('id');
         this._heroService.getHero(id)
-            .then(hero => this.hero = hero);
+            .then((hero: IHero) => this.hero = hero);
     }
 
     goBack() {

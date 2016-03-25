@@ -5,7 +5,7 @@ import { Router } from 'angular2/router';
 import { IHero } from './hero';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroService } from './hero.service';
-import { ILogger } from './logger.service'
+import { ILogger, ILoggerToken as ILogger_Token } from './logger.service'
 
 @Component({
     selector: 'my-heroes',
@@ -21,7 +21,7 @@ export class HeroesComponent implements OnInit {
     constructor(
         private _router: Router,
         @Inject(HeroService) private _heroService: HeroService,
-        @Inject('ILogger') private _logger: ILogger) {
+        @Inject(ILogger_Token) private _logger: ILogger) {
     }
 
     getHeroes() {

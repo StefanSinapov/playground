@@ -4,7 +4,7 @@ import { Http, Response, Headers, RequestOptions } from 'angular2/http';
 import {Observable} from 'rxjs/Observable'
 import 'rxjs/Rx';
 
-import { ILogger } from './logger.service';
+import { ILogger, ILoggerToken as ILogger_Token } from './logger.service';
 import { HeroService } from './hero.service';
 import { IHero, Hero } from './hero';
 
@@ -14,7 +14,7 @@ export class HeroHttpService implements HeroService {
     private _heroesUrl = 'app/heroes.json'; // URL to we api
     private _heroes: IHero[] = [];
 
-    constructor(@Inject('ILogger') private _logger: ILogger, private _http: Http) {
+    constructor( @Inject(ILogger_Token) private _logger: ILogger, private _http: Http) {
     }
 
     private getChachedHeroes(): Promise<IHero[]> {

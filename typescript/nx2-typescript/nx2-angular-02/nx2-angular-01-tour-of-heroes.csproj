@@ -49,25 +49,43 @@
     <TypeScriptCompile Include="app\hero-mockup.service.ts" />
     <TypeScriptCompile Include="app\hero.ts" />
     <TypeScriptCompile Include="app\console.logger.service.ts" />
+    <TypeScriptCompile Include="app\heroes\components\hero-async-message.component.ts" />
+    <TypeScriptCompile Include="app\heroes\components\hero-child.component.ts" />
+    <TypeScriptCompile Include="app\heroes\components\hero-parent.component.ts" />
+    <TypeScriptCompile Include="app\interaction\name-child.component.ts" />
+    <TypeScriptCompile Include="app\interaction\name-parent.component.ts" />
+    <TypeScriptCompile Include="app\interaction\version-child.component.ts" />
+    <TypeScriptCompile Include="app\interaction\version-parent.component.ts" />
+    <TypeScriptCompile Include="app\interaction\voter.component.ts" />
+    <TypeScriptCompile Include="app\interaction\astronaut.component.ts" />
+    <TypeScriptCompile Include="app\interaction\interaction.component.ts" />
+    <TypeScriptCompile Include="app\interaction\mission-control.component.ts" />
+    <TypeScriptCompile Include="app\interaction\mission.service.ts" />
     <TypeScriptCompile Include="app\logger.service.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\mock-heroes.ts" />
-    <TypeScriptCompile Include="app\router.config.ts" />
+    <TypeScriptCompile Include="shared\config\router.config.ts" />
     <TypeScriptCompile Include="app\wiki\wiki-smart.component.ts" />
     <TypeScriptCompile Include="app\wiki\wiki.component.ts" />
     <TypeScriptCompile Include="app\wiki\wikipedia.service.ts" />
+    <TypeScriptCompile Include="shared\directives\email-validator.directive.ts" />
+    <TypeScriptCompile Include="shared\directives\log-on-click.directive.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
     <Content Include="package.json" />
     <TypeScriptCompile Include="app\hero.data.ts" />
+    <TypeScriptCompile Include="app\interaction\voter-taker.component.ts" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\heroes\pipes\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

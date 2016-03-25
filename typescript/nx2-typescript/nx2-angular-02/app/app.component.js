@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', 'angular2/http', './hero.service', './hero-http.service', './console.logger.service', './router.config', './hero.data', 'a2-in-memory-web-api/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', 'angular2/http', './hero.service', './hero-http.service', './console.logger.service', './../shared/config/router.config', './hero.data', 'a2-in-memory-web-api/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -49,7 +49,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', './hero.se
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n      <a [routerLink]=\"['Heroes']\">Heroes</a>\n      <a [routerLink]=\"['HeroForm']\">Add new form</a>\n      <a [routerLink] = \"['ClickMe']\">Click me demo</a>\n      <a [routerLink] = \"['Wiki']\">Wiki</a>\n      <a [routerLink] = \"['WikiSmart']\">Smart Wiki</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
+                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n      <a [routerLink]=\"['Heroes']\">Heroes</a>\n      <a [routerLink]=\"['HeroForm']\">Add new form</a>\n      <a [routerLink] = \"['ClickMe']\">Click me demo</a>\n      <a [routerLink] = \"['Wiki']\">Wiki</a>\n      <a [routerLink] = \"['WikiSmart']\">Smart Wiki</a>\n      <a [routerLink] = \"['Interaction']\">Interaction</a>\n      <a [routerLink] = \"['HeroAsyncMessage']\">Pipes</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
                         styleUrls: ['app/app.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [

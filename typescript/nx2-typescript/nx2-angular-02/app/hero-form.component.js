@@ -1,4 +1,4 @@
-System.register(['angular2/core', './hero'], function(exports_1, context_1) {
+System.register(['angular2/core', '../shared/directives/log-on-click.directive', '../shared/directives/email-validator.directive', './hero'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,18 @@ System.register(['angular2/core', './hero'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hero_1;
+    var core_1, log_on_click_directive_1, email_validator_directive_1, hero_1;
     var HeroFormComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (log_on_click_directive_1_1) {
+                log_on_click_directive_1 = log_on_click_directive_1_1;
+            },
+            function (email_validator_directive_1_1) {
+                email_validator_directive_1 = email_validator_directive_1_1;
             },
             function (hero_1_1) {
                 hero_1 = hero_1_1;
@@ -43,6 +49,7 @@ System.register(['angular2/core', './hero'], function(exports_1, context_1) {
                 HeroFormComponent = __decorate([
                     core_1.Component({
                         selector: 'hero-form',
+                        directives: [log_on_click_directive_1.LogOnClickDirective, email_validator_directive_1.EmailValidator],
                         templateUrl: 'app/hero-form.component.html'
                     }), 
                     __metadata('design:paramtypes', [])

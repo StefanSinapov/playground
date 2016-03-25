@@ -1,13 +1,13 @@
 ﻿import { IHero, Hero } from './hero';
 import { HEROES } from './mock-heroes';
 import { Injectable, Inject } from 'angular2/core';
-import { ILogger } from './logger.service';
+import { ILogger, ILoggerToken as ILogger_Token } from './logger.service';
 import { HeroService } from './hero.service';
 
 @Injectable()
 export class HeroMockupService implements HeroService {
 
-    constructor(@Inject('ILogger') private _logger: ILogger) {
+    constructor( @Inject(ILogger_Token) private _logger: ILogger) {
     }
 
     getHeroes(): Promise<IHero[]> {
