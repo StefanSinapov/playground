@@ -1,17 +1,17 @@
 // Const enums - they are inlined when typescript compilation begin.
 
-const enum Color3 { Red, Green, Blue }
-var green: Color3 = Color3.Green;
+const enum ColorEnumb { Red, Green, Blue }
+var green: ColorEnumb = ColorEnumb.Green;
 
 // ERROR: const enums can only be accessed using string literal
-// var greenText: string = Color3[0];
+// var greenText: string = ColorEnumb[0];
 
 //ERROR: const enums return only number value
-// var greenText: string = Color3['Red'];
+// var greenText: string = ColorEnumb['Red'];
 
-const enum Color4 { Red = 1, Green = 2, Blue = 4 }
-let colorIndex2: number = Color4['Red'];
-let colorIndex3: Color4 = Color4['Red'];
+const enum ColorEnum4 { Red = 1, Green = 2, Blue = 4 }
+let colorIndex2: number = ColorEnum4['Red'];
+let colorIndex3: Color4 = ColorEnum4['Red'];
 // they are the same when compiled
 
 //NOTE: However you might want the compiler to still generate the JavaScript version of the enum definition for stuff like number 
