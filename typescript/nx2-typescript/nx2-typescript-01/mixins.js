@@ -1,6 +1,4 @@
-System.register(['domLogger'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['domLogger'], function(exports_1) {
     var domLogger_1;
     var logger, Disposable, Activatable, SmartObject, smartObj, x, y;
     function applyMixins(derivedCtor, baseCtors) {
@@ -27,7 +25,7 @@ System.register(['domLogger'], function(exports_1, context_1) {
                     this.isDisposed = true;
                 };
                 return Disposable;
-            }());
+            })();
             // Activatable Mixin
             Activatable = (function () {
                 function Activatable() {
@@ -39,7 +37,7 @@ System.register(['domLogger'], function(exports_1, context_1) {
                     this.isActive = false;
                 };
                 return Activatable;
-            }());
+            })();
             SmartObject = (function () {
                 function SmartObject() {
                     var _this = this;
@@ -57,7 +55,7 @@ System.register(['domLogger'], function(exports_1, context_1) {
                     this.activate();
                 };
                 return SmartObject;
-            }());
+            })();
             applyMixins(SmartObject, [Disposable, Activatable]);
             smartObj = new SmartObject();
             setTimeout(function () { return smartObj.interact(); }, 1000);

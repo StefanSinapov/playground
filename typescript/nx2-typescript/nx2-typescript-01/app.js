@@ -1,6 +1,5 @@
-System.register(['domLogger'], function(exports_1, context_1) {
+System.register(['domLogger'], function(exports_1) {
     'use strict';
-    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -41,7 +40,7 @@ System.register(['domLogger'], function(exports_1, context_1) {
                     return count;
                 };
                 return MyDictionary;
-            }());
+            })();
             Animal = (function () {
                 function Animal(theName) {
                     this.name = theName;
@@ -51,7 +50,7 @@ System.register(['domLogger'], function(exports_1, context_1) {
                     logger.log(this.name + ' moved ' + meters + 'm.');
                 };
                 return Animal;
-            }());
+            })();
             Snake = (function (_super) {
                 __extends(Snake, _super);
                 function Snake(name) {
@@ -63,7 +62,7 @@ System.register(['domLogger'], function(exports_1, context_1) {
                     _super.prototype.move.call(this, meters);
                 };
                 return Snake;
-            }(Animal));
+            })(Animal);
             Horse = (function (_super) {
                 __extends(Horse, _super);
                 function Horse(name) {
@@ -75,7 +74,7 @@ System.register(['domLogger'], function(exports_1, context_1) {
                     _super.prototype.move.call(this, meters);
                 };
                 return Horse;
-            }(Animal));
+            })(Animal);
             sam = new Snake('Sammy the Python');
             tom = new Horse('Tommy the Palomino');
             sam.move();
@@ -93,7 +92,7 @@ System.register(['domLogger'], function(exports_1, context_1) {
                 };
                 Greeter.standardGreeting = 'Hello, there';
                 return Greeter;
-            }());
+            })();
             greeter1 = new Greeter();
             logger.log(greeter1.greet());
             greeterMaker = Greeter;
@@ -104,31 +103,31 @@ System.register(['domLogger'], function(exports_1, context_1) {
                 function BeeKeeper() {
                 }
                 return BeeKeeper;
-            }());
+            })();
             ZooKeeper = (function () {
                 function ZooKeeper() {
                 }
                 return ZooKeeper;
-            }());
+            })();
             Animal2 = (function () {
                 function Animal2() {
                 }
                 return Animal2;
-            }());
+            })();
             Bee = (function (_super) {
                 __extends(Bee, _super);
                 function Bee() {
                     _super.apply(this, arguments);
                 }
                 return Bee;
-            }(Animal2));
+            })(Animal2);
             Lion = (function (_super) {
                 __extends(Lion, _super);
                 function Lion() {
                     _super.apply(this, arguments);
                 }
                 return Lion;
-            }(Animal2));
+            })(Animal2);
         }
     }
 });

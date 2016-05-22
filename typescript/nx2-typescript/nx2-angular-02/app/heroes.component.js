@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './hero-detail.component', './hero.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './hero-detail.component', './hero.service', './logger.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,7 +13,7 @@ System.register(['angular2/core', 'angular2/router', './hero-detail.component', 
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, router_1, hero_detail_component_1, hero_service_1;
+    var core_1, router_1, hero_detail_component_1, hero_service_1, logger_service_1;
     var HeroesComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['angular2/core', 'angular2/router', './hero-detail.component', 
             },
             function (hero_service_1_1) {
                 hero_service_1 = hero_service_1_1;
+            },
+            function (logger_service_1_1) {
+                logger_service_1 = logger_service_1_1;
             }],
         execute: function() {
             HeroesComponent = (function () {
@@ -79,7 +82,7 @@ System.register(['angular2/core', 'angular2/router', './hero-detail.component', 
                         directives: [hero_detail_component_1.HeroDetailComponent]
                     }),
                     __param(1, core_1.Inject(hero_service_1.HeroService)),
-                    __param(2, core_1.Inject('ILogger')), 
+                    __param(2, core_1.Inject(logger_service_1.ILoggerToken)), 
                     __metadata('design:paramtypes', [router_1.Router, hero_service_1.HeroService, Object])
                 ], HeroesComponent);
                 return HeroesComponent;

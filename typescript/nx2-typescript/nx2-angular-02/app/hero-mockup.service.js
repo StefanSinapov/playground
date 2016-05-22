@@ -1,4 +1,4 @@
-System.register(['./hero', './mock-heroes', 'angular2/core'], function(exports_1, context_1) {
+System.register(['./hero', './mock-heroes', 'angular2/core', './logger.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,7 +13,7 @@ System.register(['./hero', './mock-heroes', 'angular2/core'], function(exports_1
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var hero_1, mock_heroes_1, core_1;
+    var hero_1, mock_heroes_1, core_1, logger_service_1;
     var HeroMockupService;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['./hero', './mock-heroes', 'angular2/core'], function(exports_1
             },
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (logger_service_1_1) {
+                logger_service_1 = logger_service_1_1;
             }],
         execute: function() {
             HeroMockupService = (function () {
@@ -70,7 +73,7 @@ System.register(['./hero', './mock-heroes', 'angular2/core'], function(exports_1
                 HeroMockupService.prototype.deleteHero = function (heroId) { throw new Error('Not implemented'); };
                 HeroMockupService = __decorate([
                     core_1.Injectable(),
-                    __param(0, core_1.Inject('ILogger')), 
+                    __param(0, core_1.Inject(logger_service_1.ILoggerToken)), 
                     __metadata('design:paramtypes', [Object])
                 ], HeroMockupService);
                 return HeroMockupService;

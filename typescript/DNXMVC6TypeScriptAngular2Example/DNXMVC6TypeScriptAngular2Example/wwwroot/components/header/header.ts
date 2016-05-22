@@ -1,5 +1,4 @@
-﻿/// <reference path="../../../node_modules/angular2/typings/tsd.d.ts" />
-import {bootstrap} from 'angular2/platform/browser';
+﻿import {bootstrap} from 'angular2/platform/browser';
 import {Component, View, Inject} from 'angular2/core';
 import {ConfigModel} from './../../models/config.model';
 import {DataHandlersModel} from './../../models/data.handlers.model';

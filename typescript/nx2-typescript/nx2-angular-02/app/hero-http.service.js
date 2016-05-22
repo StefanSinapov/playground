@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx', './hero'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx', './logger.service', './hero'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,7 +13,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx',
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, http_1, Observable_1, hero_1;
+    var core_1, http_1, Observable_1, logger_service_1, hero_1;
     var HeroHttpService;
     return {
         setters:[
@@ -27,6 +27,9 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx',
                 Observable_1 = Observable_1_1;
             },
             function (_1) {},
+            function (logger_service_1_1) {
+                logger_service_1 = logger_service_1_1;
+            },
             function (hero_1_1) {
                 hero_1 = hero_1_1;
             }],
@@ -118,7 +121,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Rx',
                 };
                 HeroHttpService = __decorate([
                     core_1.Injectable(),
-                    __param(0, core_1.Inject('ILogger')), 
+                    __param(0, core_1.Inject(logger_service_1.ILoggerToken)), 
                     __metadata('design:paramtypes', [Object, http_1.Http])
                 ], HeroHttpService);
                 return HeroHttpService;

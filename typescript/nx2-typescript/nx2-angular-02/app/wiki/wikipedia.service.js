@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', '../logger.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,7 +13,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, http_1;
+    var core_1, http_1, logger_service_1;
     var WikipediaService;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
             },
             function (http_1_1) {
                 http_1 = http_1_1;
+            },
+            function (logger_service_1_1) {
+                logger_service_1 = logger_service_1_1;
             }],
         execute: function() {
             WikipediaService = (function () {
@@ -42,7 +45,7 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                 };
                 WikipediaService = __decorate([
                     core_1.Injectable(),
-                    __param(1, core_1.Inject('ILogger')), 
+                    __param(1, core_1.Inject(logger_service_1.ILoggerToken)), 
                     __metadata('design:paramtypes', [http_1.Jsonp, Object])
                 ], WikipediaService);
                 return WikipediaService;

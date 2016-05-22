@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', 'angular2/http', './hero.service', './hero-http.service', './console.logger.service', './../shared/config/router.config', './hero.data', 'a2-in-memory-web-api/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', 'angular2/http', './hero.service', './hero-http.service', './logger.service', './console.logger.service', './../shared/config/router.config', './hero.data', 'a2-in-memory-web-api/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', './hero.se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, http_1, hero_service_1, hero_http_service_1, console_logger_service_1, router_config_1, hero_data_1, core_2;
+    var core_1, router_1, http_1, hero_service_1, hero_http_service_1, logger_service_1, console_logger_service_1, router_config_1, hero_data_1, core_2;
     var AppComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', './hero.se
             },
             function (hero_http_service_1_1) {
                 hero_http_service_1 = hero_http_service_1_1;
+            },
+            function (logger_service_1_1) {
+                logger_service_1 = logger_service_1_1;
             },
             function (console_logger_service_1_1) {
                 console_logger_service_1 = console_logger_service_1_1;
@@ -57,7 +60,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', './hero.se
                             core_1.provide(hero_service_1.HeroService, { useClass: hero_http_service_1.HeroHttpService }),
                             core_1.provide(http_1.XHRBackend, { useClass: core_2.InMemoryBackendService }),
                             core_1.provide(core_2.SEED_DATA, { useClass: hero_data_1.HeroData }),
-                            core_1.provide('ILogger', { useClass: console_logger_service_1.ConsoleLogger })
+                            core_1.provide(logger_service_1.ILoggerToken, { useClass: console_logger_service_1.ConsoleLogger })
                         ]
                     }),
                     router_1.RouteConfig(router_config_1.routerConfig), 
