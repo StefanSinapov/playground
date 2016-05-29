@@ -1,18 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Routes, ROUTER_DIRECTIVES} from '@angular/router';
+import { Title } from '@angular/platform-browser';
+
 import { UserComponent } from './+user';
-import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { OrganizationComponent } from './+organization';
+import { DriveComponent } from './+drive';
 
 @Component({
   moduleId: module.id,
   selector: 'nx1-app',
   templateUrl: 'nx1.component.html',
   styleUrls: ['nx1.component.css'],
-  directives: [ROUTER_DIRECTIVES],
-  providers: [ROUTER_PROVIDERS]
+  directives: [ROUTER_DIRECTIVES]
 })
 @Routes([
-  {path: '/user/...', component: UserComponent}
+  { path: '/drive', component: DriveComponent },
+  { path: '/user', component: UserComponent },
+  { path: '/organization', component: OrganizationComponent },
 ])
-export class Nx1AppComponent {
-  title = 'nx1 works!';
+export class Nx1AppComponent implements OnInit {
+
+  constructor(public title: Title) {
+  }
+  
+  ngOnInit() {
+    this.title.setTitle('NX1')
+  }
+  
+  logout($event){
+    $event.preventDefault();
+    console.log('logout clicked')
+  }
 }

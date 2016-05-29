@@ -9,25 +9,25 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { ProfileComponent } from './profile.component';
+import { DriveComponent } from './drive.component';
 
-describe('Component: Profile', () => {
+describe('Component: Drive', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [ProfileComponent]);
+  beforeEachProviders(() => [DriveComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([ProfileComponent],
-      (component: ProfileComponent) => {
+  it('should inject the component', inject([DriveComponent],
+      (component: DriveComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(ProfileComponentTestController)
+    return builder.createAsync(DriveComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(ProfileComponent));
+        let query = fixture.debugElement.query(By.directive(DriveComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -37,10 +37,10 @@ describe('Component: Profile', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-profile></app-profile>
+    <nx1-drive></nx1-drive>
   `,
-  directives: [ProfileComponent]
+  directives: [DriveComponent]
 })
-class ProfileComponentTestController {
+class DriveComponentTestController {
 }
 

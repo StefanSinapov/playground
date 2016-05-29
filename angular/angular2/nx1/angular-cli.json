@@ -23,9 +23,9 @@
     }
   },
   "defaults": {
-    "prefix": "app",
+    "prefix": "nx1",
     "sourceDir": "src",
     "styleExt": "css",
-    "prefixInterfaces": false
+    "prefixInterfaces": true
   }
 }

@@ -1,6 +1,17 @@
-<h1>
-  {{title}}
-</h1>
-<a [routerLink]="['/']">Home</a>
-<a [routerLink]="['/user/...']">User</a>
+<header class="navbar ">
+    <div class="navbar__header">
+    </div>
+    <nav class="navbar__menu">
+        <a [routerLink]="['/user']">User</a>
+    </nav>
+    <nav class="navbar__menu">
+        <a [routerLink]="['/drive']">My work</a>
+    </nav>
+    <nav class="navbar__menu">
+        <a href="#" (click)="logout($event)">Logout</a>
+    </nav>
+</header>
+<div class="">
+    <router-outlet></router-outlet>
+</div>
 <router-outlet></router-outlet>

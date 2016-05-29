@@ -1,22 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileComponent } from './+profile';
-import { Routes , ROUTER_DIRECTIVES} from '@angular/router';
+import { Routes, ROUTER_DIRECTIVES} from '@angular/router';
+
+import { UserProfileComponent } from './user-profile';
+import { UserOrganizationsComponent } from './user-organizations';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-user',
+  selector: 'nx1-user',
   templateUrl: 'user.component.html',
   styleUrls: ['user.component.css'],
   directives: [ROUTER_DIRECTIVES]
 })
 @Routes([
-  {path: '/profile', component: ProfileComponent}
+  { path: '/profile', component: UserProfileComponent },
+  { path: '/organizations', component: UserOrganizationsComponent }
 ])
 export class UserComponent implements OnInit {
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
+    console.log('user init');
   }
 
 }

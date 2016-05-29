@@ -9,25 +9,25 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { UserProfileEditComponent } from './user-profile-edit.component';
+import { OrganizationProfileComponent } from './organization-profile.component';
 
-describe('Component: UserProfileEdit', () => {
+describe('Component: OrganizationProfile', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [UserProfileEditComponent]);
+  beforeEachProviders(() => [OrganizationProfileComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([UserProfileEditComponent],
-      (component: UserProfileEditComponent) => {
+  it('should inject the component', inject([OrganizationProfileComponent],
+      (component: OrganizationProfileComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(UserProfileEditComponentTestController)
+    return builder.createAsync(OrganizationProfileComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(UserProfileEditComponent));
+        let query = fixture.debugElement.query(By.directive(OrganizationProfileComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -37,10 +37,10 @@ describe('Component: UserProfileEdit', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-user-profile-edit></app-user-profile-edit>
+    <nx1-organization-profile></nx1-organization-profile>
   `,
-  directives: [UserProfileEditComponent]
+  directives: [OrganizationProfileComponent]
 })
-class UserProfileEditComponentTestController {
+class OrganizationProfileComponentTestController {
 }
 
